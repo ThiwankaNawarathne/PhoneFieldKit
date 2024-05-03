@@ -17,11 +17,24 @@ struct ContentView: View {
     var prompt: String = "Search Your Country"
     
     var body: some View {
-        VStack {
-            Text("entered phone \(phoneNumber)")
-            Text("is valid phone \(isValidPhoneNumber)")
-            PhoneField(phoneNumber: $phoneNumber, isValidPhoneNumber: $isValidPhoneNumber, maskChar: "#", prompt: prompt, textColor: .secondary)
-//            PhoneField(phoneNumber: $phoneNumber, countries: countriesOnly, excludeInList: false)
+        NavigationView {
+            VStack {
+                Text("entered phone \(phoneNumber)")
+                Text("is valid phone \(isValidPhoneNumber)")
+                PhoneField(phoneNumber: $phoneNumber, isValidPhoneNumber: $isValidPhoneNumber, maskChar: "#", prompt: prompt, textColor: .secondary)
+                //            PhoneField(phoneNumber: $phoneNumber, countries: countriesOnly, excludeInList: false)
+            }
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button(action: {
+                    
+                }, label: {
+                    Text("Done")
+                        .fontWeight(.bold)
+                })
+            }
         }
     }
 }

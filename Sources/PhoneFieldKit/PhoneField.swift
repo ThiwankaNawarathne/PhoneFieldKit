@@ -35,13 +35,15 @@ public struct PhoneField: View {
     }
     
     public var body: some View {
-        PhoneNumberView(phoneNumber: $phoneNumberEntered, isValidPhoneNumber: $isValidPhoneNumber, model: model, textColor: textColor, borderColor: borderColor, borderRadius: borderRadius, lineWidth: lineWidth, fieldHeight: fieldHeight, maskChar: maskChar, prompt: prompt, borderColorCorrect: borderColor)
-            .onChange(of: phoneNumberEntered) { value in
-                guard let dialCode = model.selectedCountry?.dial_code else {
-                    return
+        VStack {
+            PhoneFieldView(phoneNumber: $phoneNumberEntered, isValidPhoneNumber: $isValidPhoneNumber, model: model, textColor: textColor, borderColor: borderColor, borderRadius: borderRadius, lineWidth: lineWidth, fieldHeight: fieldHeight, maskChar: maskChar, prompt: prompt, borderColorCorrect: borderColor)
+                .onChange(of: phoneNumberEntered) { value in
+                    guard let dialCode = model.selectedCountry?.dial_code else {
+                        return
+                    }
+                    
+                    phoneNumber = dialCode + value
                 }
-                
-                phoneNumber = dialCode + value
-            }
+        }
     }
 }

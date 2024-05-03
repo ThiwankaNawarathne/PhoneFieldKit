@@ -1,5 +1,5 @@
 //
-//  PhoneNumberView.swift
+//  PhoneFieldView.swift
 //  PhoneFieldKit
 //
 //  Created by Thiwanka Nawarathne on 2024-04-29.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-internal struct PhoneNumberView: View {
+internal struct PhoneFieldView: View {
     @Binding var phoneNumber: String
     @Binding var isValidPhoneNumber: Bool
     @ObservedObject var model: PhoneFieldVM
@@ -25,7 +25,7 @@ internal struct PhoneNumberView: View {
     @State var borderColorCorrect: Color
     
     var body: some View {
-        VStack {
+        LazyVStack {
             HStack {
                 Button {
                     presentSheet = true
@@ -41,7 +41,9 @@ internal struct PhoneNumberView: View {
                 }
                 .padding(.trailing, 5)
                 
-                TextField(model.selectedCountry?.maskedPattern(with: maskChar) ?? "", text: $phoneNumber, onEditingChanged: { begin in })
+                TextField(model.selectedCountry?.maskedPattern(with: maskChar) ?? "", text: $phoneNumber, onEditingChanged: { begin in
+                    validatePhoneNumber()
+                })
                     .focused($keyIsFocused)
                     .keyboardType(.numberPad)
                     .modifier(ClearButton(text: $phoneNumber))
@@ -61,6 +63,9 @@ internal struct PhoneNumberView: View {
                     }
                     .frame(height: CGFloat(fieldHeight))
                     .foregroundColor(textColor)
+            }
+            .onTapGesture {
+                keyIsFocused = true
             }
             .padding(.top, 5)
             .padding(.bottom, 5)
@@ -87,10 +92,6 @@ internal struct PhoneNumberView: View {
                         .fontWeight(.bold)
                 })
             }
-        }
-        .onChange(of: keyIsFocused) { newValue in
-            guard newValue == false else { return }
-            validatePhoneNumber()
         }
     }
     
