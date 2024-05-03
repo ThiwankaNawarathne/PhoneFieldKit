@@ -31,17 +31,19 @@ public struct PhoneField: View {
         lineWidth = width
         borderRadius = radius
         textColor = colorText
-        _model = StateObject(wrappedValue: PhoneFieldVM(list: list, selectedDefault: selectedDefault, exclude: exclude))
+        _model = StateObject(wrappedValue: PhoneFieldVM(list: list, selectedDefault: selectedDefault, exclude: exclude))  
     }
     
     public var body: some View {
-        PhoneNumberView(phoneNumber: $phoneNumberEntered, isValidPhoneNumber: $isValidPhoneNumber, model: model, textColor: textColor, borderColor: borderColor, borderRadius: borderRadius, lineWidth: lineWidth, fieldHeight: fieldHeight, maskChar: maskChar, prompt: prompt, borderColorCorrect: borderColor)
-            .onChange(of: phoneNumberEntered) { value in
-                guard let dialCode = model.selectedCountry?.dial_code else {
-                    return
+        VStack {
+            PhoneFieldView(phoneNumber: $phoneNumberEntered, isValidPhoneNumber: $isValidPhoneNumber, model: model, textColor: textColor, borderColor: borderColor, borderRadius: borderRadius, lineWidth: lineWidth, fieldHeight: fieldHeight, maskChar: maskChar, prompt: prompt, borderColorCorrect: borderColor)
+                .onChange(of: phoneNumberEntered) { value in
+                    guard let dialCode = model.selectedCountry?.dial_code else {
+                        return
+                    }
+                    
+                    phoneNumber = dialCode + value
                 }
-                
-                phoneNumber = dialCode + value
-            }
+        }
     }
 }
