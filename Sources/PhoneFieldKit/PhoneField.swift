@@ -31,7 +31,7 @@ public struct PhoneField: View {
         lineWidth = width
         borderRadius = radius
         textColor = colorText
-        _model = StateObject(wrappedValue: PhoneFieldVM(list: list, selectedDefault: selectedDefault, exclude: exclude))
+        _model = StateObject(wrappedValue: PhoneFieldVM(list: list, selectedDefault: selectedDefault, exclude: exclude))  
     }
     
     public var body: some View {
