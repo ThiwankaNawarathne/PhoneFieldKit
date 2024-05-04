@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40CD60802BE5EEC900F4EF0C /* PhoneFieldKit in Frameworks */ = {isa = PBXBuildFile; productRef = 40CD607F2BE5EEC900F4EF0C /* PhoneFieldKit */; };
 		40ECE47F2BE34B2000C25BE4 /* DemoPhoneFieldKitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECE47E2BE34B2000C25BE4 /* DemoPhoneFieldKitApp.swift */; };
 		40ECE4812BE34B2000C25BE4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECE4802BE34B2000C25BE4 /* ContentView.swift */; };
 		40ECE4832BE34B2300C25BE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40ECE4822BE34B2300C25BE4 /* Assets.xcassets */; };
@@ -15,7 +16,6 @@
 		40ECE49A2BE34B2400C25BE4 /* DemoPhoneFieldKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECE4992BE34B2400C25BE4 /* DemoPhoneFieldKitUITests.swift */; };
 		40ECE49C2BE34B2400C25BE4 /* DemoPhoneFieldKitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECE49B2BE34B2400C25BE4 /* DemoPhoneFieldKitUITestsLaunchTests.swift */; };
 		40ECE4A92BE34B4C00C25BE4 /* PhoneFieldKit in Resources */ = {isa = PBXBuildFile; fileRef = 40ECE4A82BE34B4C00C25BE4 /* PhoneFieldKit */; };
-		40ECE4AC2BE34B8400C25BE4 /* PhoneFieldKit in Frameworks */ = {isa = PBXBuildFile; productRef = 40ECE4AB2BE34B8400C25BE4 /* PhoneFieldKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40ECE4AC2BE34B8400C25BE4 /* PhoneFieldKit in Frameworks */,
+				40CD60802BE5EEC900F4EF0C /* PhoneFieldKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,7 +157,7 @@
 			);
 			name = DemoPhoneFieldKit;
 			packageProductDependencies = (
-				40ECE4AB2BE34B8400C25BE4 /* PhoneFieldKit */,
+				40CD607F2BE5EEC900F4EF0C /* PhoneFieldKit */,
 			);
 			productName = DemoPhoneFieldKit;
 			productReference = 40ECE47B2BE34B2000C25BE4 /* DemoPhoneFieldKit.app */;
@@ -607,7 +607,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		40ECE4AB2BE34B8400C25BE4 /* PhoneFieldKit */ = {
+		40CD607F2BE5EEC900F4EF0C /* PhoneFieldKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PhoneFieldKit;
 		};

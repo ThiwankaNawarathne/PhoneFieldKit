@@ -19,23 +19,12 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("entered phone \(phoneNumber)")
-                Text("is valid phone \(isValidPhoneNumber)")
+                Text("Phone Number \(phoneNumber)")
+                Text("Valid Phone Number \(isValidPhoneNumber)")
                 PhoneField(phoneNumber: $phoneNumber, isValidPhoneNumber: $isValidPhoneNumber, maskChar: "#", prompt: prompt, textColor: .secondary)
-                //            PhoneField(phoneNumber: $phoneNumber, countries: countriesOnly, excludeInList: false)
             }
         }
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                Button(action: {
-                    
-                }, label: {
-                    Text("Done")
-                        .fontWeight(.bold)
-                })
-            }
-        }
+        .dismissKeyBoard()
     }
 }
 
