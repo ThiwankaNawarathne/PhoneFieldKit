@@ -25,7 +25,7 @@ internal struct PhoneFieldView: View {
     @State var borderColorCorrect: Color
     
     var body: some View {
-        LazyVStack {
+        VStack {
             HStack {
                 Button {
                     presentSheet = true
