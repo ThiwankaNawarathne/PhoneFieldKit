@@ -41,9 +41,7 @@ internal struct PhoneFieldView: View {
                 }
                 .padding(.trailing, 5)
                 
-                TextField(model.selectedCountry?.maskedPattern(with: maskChar) ?? "", text: $phoneNumber, onEditingChanged: { begin in
-                    validatePhoneNumber()
-                })
+                TextField(model.selectedCountry?.maskedPattern(with: maskChar) ?? "", text: $phoneNumber)
                     .focused($keyIsFocused)
                     .keyboardType(.numberPad)
                     .modifier(ClearButton(text: $phoneNumber))
