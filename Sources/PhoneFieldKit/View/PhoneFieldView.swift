@@ -64,11 +64,7 @@ internal struct PhoneFieldView: View {
             }
             .onTapGesture {
                 keyIsFocused = true
-            }
-            .padding(.top, 5)
-            .padding(.bottom, 5)
-            .padding(.leading, 10)
-            .padding(.trailing, 10)
+            } 
             .overlay(
                 RoundedRectangle(cornerRadius: CGFloat(borderRadius))
                     .stroke(borderColor, lineWidth: CGFloat(lineWidth))
